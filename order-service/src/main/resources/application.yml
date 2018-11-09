@@ -1,0 +1,30 @@
+server:
+  port: 8769
+
+spring:
+  application:
+    name: order-service
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: 123123
+    #url: jdbc:mysql://localhost/sell
+    #url: jdbc:mysql://${mysql}:3306/sell
+    url: jdbc:mysql://192.168.42.74/sell
+  zipkin:
+    base-url: http://192.168.42.74:9411
+
+
+#dubbo config
+dubbo:
+  application:
+    name: order-service
+  protocol:
+    port: 20880
+    name: dubbo
+  registry:
+    address: zookeeper://192.168.42.74:2181
+  consumer:
+    timeout: 5000
+
+demo.service.version: 1.0.0

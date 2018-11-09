@@ -1,0 +1,28 @@
+server:
+  port: 8770
+
+spring:
+  datasource:
+    username: root
+    password: 123123
+    url: jdbc:mysql://localhost/sell
+    driver-class-name: com.mysql.jdbc.Driver
+  application:
+    name: product-service
+  sleuth:
+    sampler:
+      probability: 0.1
+
+dubbo:
+  application:
+    name: product-service
+  protocol:
+    name: dubbo
+    port: 20880
+  registry:
+    address: zookeeper://192.168.42.74:2181
+    #address: zookeeper://192.168.0.105:2181
+  provider:
+    timeout: 1000
+
+demo.service.version: 1.0.0
